@@ -16,8 +16,6 @@ from collections import defaultdict
 #  PHASE 1 — DATA PREPARATION
 # ─────────────────────────────────────────────────────────
 
-# SKILL_ALIASES — copied EXACTLY from the hackathon problem sheet.
-# DO NOT modify, add, or remove any entry.
 SKILL_ALIASES = {
     # Languages
     "python":               "python",
@@ -127,7 +125,7 @@ SKILL_ALIASES = {
     "figma":                "figma",
 }
 
-# ── 10 Resumes — EXACT data from the hackathon problem sheet ──
+# ── 10 Resumes ──
 RESUMES = [
     {
         "name":   "Arjun Sharma",
@@ -171,8 +169,8 @@ RESUMES = [
     },
 ]
 
-# ── 3 Job Descriptions — EXACT data from the hackathon problem sheet ──
-# JD skills = Required Skills + Preferred Skills combined
+# ── 3 Job Descriptions ──
+# JD skills
 JOB_DESCRIPTIONS = [
     {
         "id":    "JD-1",
@@ -226,9 +224,7 @@ def normalize_skills(raw_skills_str: str, debug: bool = False) -> list:
     canonical = []
     removed   = []
 
-    # Sort alias keys longest-first so multi-word keys match before
-    # shorter ones (e.g. "feature engineering" before "feature")
-    sorted_alias_keys = sorted(SKILL_ALIASES.keys(), key=lambda k: -len(k))
+       sorted_alias_keys = sorted(SKILL_ALIASES.keys(), key=lambda k: -len(k))
 
     for token in tokens:
         if not token:          # skip empty strings from trailing commas etc.
